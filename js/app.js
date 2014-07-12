@@ -23,6 +23,10 @@ angular
 				templateUrl: 'views/nearMe.html',
 				controller: 'NearMe'
 			})
+			.when('/report', {
+				templateUrl: 'views/report.html',
+				controller: 'Report'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});

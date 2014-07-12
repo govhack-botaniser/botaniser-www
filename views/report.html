@@ -1,0 +1,26 @@
+<form role="form">
+ 	<input id='fileSelect' type="file" ng-file-select="onFileSelect($files)" accept="image/*" >
+	<label for='fileSelect'>
+		<img ng-src="{{form.imageSrc}}" alt="Select Image For Report" class="img-thumbnail"/>
+	</label>
+	<div class="form-group">
+		<h5> Location of specimen</h5>
+		<button ng-click='getPos()' type="button" class="btn btn-link"><i class="fa fa-map-marker fa-lg"></i> Use my current location</button>
+		<div class="form-group">
+		<label for="SpeciesLatitude">Latitude</label>
+			<input ng-model='form.lat' class="form-control" id="SpeciesLatitude" placeholder="Latitude" />
+	</div>
+			<div class="form-group">
+		<label for="SpeciesLongitude">Latitude</label>
+				<input ng-model='form.lon' class="form-control" id="SpeciesLongitude" placeholder="Longitude" />
+	</div>
+		<label for="SpeciesName">Name</label>
+		<input class="form-control" id="SpeciesName" placeholder="Enter species name"/>
+		</div>
+
+	<div class="form-group">
+		<label for="Description">Description</label>
+			<textarea class="form-control" rows="3" id="Description" placeholder="Size, local habitat, and interactions with bees or other animals etc. Max. 400 words"></textarea>
+	</div>
+	   <button type="submit" class="btn btn-success">Submit</button>
+</form>
