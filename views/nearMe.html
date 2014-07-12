@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-9">
+        <img src="https://dl.dropboxusercontent.com/u/37793595/P1060442.jpg" width="160" alt="Photo of flora" class="img-circle"></img>
+    </div>
+
+<h2>You are here</h2>
+<h3>Latitude</h3>
+{{pos.coords.latitude}}
+<h3>Longitude</h3>
+{{pos.coords.longitude}}
+
+<ul>
+	<li ng-repeat="item in species">
+		<span>{{item.label}}</span><span>{{item.totalCount}}</span>
+	</li>
+</ul>

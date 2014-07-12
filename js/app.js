@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name wwwApp
- * @description
- * # wwwApp
- *
- * Main module of the application.
- */
 angular
 	.module('botanApp', [
 		'ngAnimate',
@@ -26,6 +18,10 @@ angular
 			.when('/about', {
 				templateUrl: 'views/about.html',
 				controller: 'AboutCtrl'
+			})
+			.when('/nearMe', {
+				templateUrl: 'views/nearMe.html',
+				controller: 'NearMe'
 			})
 			.otherwise({
 				redirectTo: '/'
