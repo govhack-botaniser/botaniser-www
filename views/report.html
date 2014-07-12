@@ -1,4 +1,4 @@
-<form role="form">
+<form role="form" ng-submit="submit()">
  	<input id='fileSelect' type="file" ng-file-select="onFileSelect($files)" accept="image/*" >
 	<label for='fileSelect'>
 		<img ng-src="{{form.imageSrc}}" alt="Select Image For Report" class="img-thumbnail"/>
@@ -15,12 +15,12 @@
 				<input ng-model='form.lon' class="form-control" id="SpeciesLongitude" placeholder="Longitude" />
 	</div>
 		<label for="SpeciesName">Name</label>
-		<input class="form-control" id="SpeciesName" placeholder="Enter species name"/>
+		<input ng-model='form.name' class="form-control" id="SpeciesName" placeholder="Enter species name"/>
 		</div>
 
 	<div class="form-group">
 		<label for="Description">Description</label>
-			<textarea class="form-control" rows="3" id="Description" placeholder="Size, local habitat, and interactions with bees or other animals etc. Max. 400 words"></textarea>
+			<textarea ng-model='form.description' class="form-control" rows="3" id="Description" placeholder="Size, local habitat, and interactions with bees or other animals etc. Max. 400 words"></textarea>
 	</div>
 	   <button type="submit" class="btn btn-success">Submit</button>
 </form>

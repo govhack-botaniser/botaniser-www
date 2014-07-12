@@ -3,6 +3,7 @@
 
 	var protocol = 'http://localhost:9292/',
 		routes   = {
+			'report'    : 'report',
 			'bulkSearch': 'bie.ala.org.au/ws/species/lookup/bulk',
 			'byLocation': 'biocache.ala.org.au/ws/occurrences/search'
 			//'byLocation': 'http://localhost:9292/biocache.ala.org.au/ws/occurrence/facets'
@@ -15,6 +16,13 @@
 					return $http.post(protocol + routes[loc], config.data || {}, config);
 				} else {
 					return $http.get(protocol + routes[loc], config);
+				}
+			},
+			send: function(loc, config, method) {
+				if (method) {
+					return $http(method, protocol + routes[loc], config.data || {}, config);
+				} else {
+					return $http.put(protocol + routes[loc], config.data, config);
 				}
 			}
 		};

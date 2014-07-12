@@ -1,6 +1,6 @@
 (function (app) {
 	'use strict';
-	app.controller('Report', function ($scope, geolocation, fileReader) {
+	app.controller('Report', function ($scope, geolocation, fileReader, api) {
 		$scope.form = {};
 		$scope.getPos = function (){
 			geolocation.getCurrentPosition(function (pos) {
@@ -15,6 +15,12 @@
 				.then(function (result) {
 					$scope.form.imageSrc = result;
 				});
+		};
+
+		$scope.submit = function () {
+			api.send('report', {
+				data: $scope.form
+			});
 		};
 	});
 }(angular.module('botanApp')));
