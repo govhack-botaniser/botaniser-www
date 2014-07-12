@@ -1,9 +1,9 @@
 (function (app) {
 	'use strict';
 
-	var protocol = 'http://localhost:9292/',
+	var protocol = 'http://',
 		routes   = {
-			'report'    : 'report',
+			'report'    : 'local.botaniser.com:8080/reports/add',
 			'bulkSearch': 'bie.ala.org.au/ws/species/lookup/bulk',
 			'byLocation': 'biocache.ala.org.au/ws/occurrences/search'
 			//'byLocation': 'http://localhost:9292/biocache.ala.org.au/ws/occurrence/facets'
@@ -22,7 +22,7 @@
 				if (method) {
 					return $http(method, protocol + routes[loc], config.data || {}, config);
 				} else {
-					return $http.put(protocol + routes[loc], config.data, config);
+					return $http.post(protocol + routes[loc], config.data, config);
 				}
 			}
 		};
