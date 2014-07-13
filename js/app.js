@@ -27,6 +27,14 @@ angular
 				templateUrl: 'views/report.html',
 				controller: 'Report'
 			})
+			.when('/species/:speciesId', {
+				templateUrl: 'views/speciesDetailCtrl.html',
+				controller: 'SpeciesDetailCtrl'
+			})
+			.when('/species/:speciesId/:radius', {
+				templateUrl: 'views/speciesDetailCtrl.html',
+				controller: 'SpeciesDetailCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});

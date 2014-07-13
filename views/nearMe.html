@@ -4,9 +4,11 @@
 <div class="panel-body">
 	<ul class="list-unstyled">
 		<li class="row list-item" ng-repeat="item in species">
-			<img src="{{item.thumbnail || 'https://dl.dropboxusercontent.com/u/37793595/P1060442.jpg'}}" class="col-xs-3">
-			<span class="col-xs-7">{{item.label}}</span>
-			<span class="col-xs-2">{{item.prize || 1}}</span>
+			<a href="#/species/{{item.label}}">
+				<img src="{{item.thumbnail || 'https://dl.dropboxusercontent.com/u/37793595/P1060442.jpg'}}" class="col-xs-3">
+				<span class="col-xs-7">{{item.label}}</span>
+				<span class="col-xs-2">{{item.prize || 1}}</span>
+			</a>
 		</li>
 	</ul>
 </div>

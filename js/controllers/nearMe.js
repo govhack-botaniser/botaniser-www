@@ -1,4 +1,4 @@
-(function (app) {
+(function (app, specieMap) {
 	'use strict';
 	app.controller('NearMe', function ($scope, geolocation, api) {
 
@@ -80,4 +80,4 @@
 			}
 		};
 	});
-}(angular.module('botanApp')));
+}(angular.module('botanApp'), specieMap));

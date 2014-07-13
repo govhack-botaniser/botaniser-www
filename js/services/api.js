@@ -1,11 +1,12 @@
 (function (app) {
 	'use strict';
 
-	var protocol = 'http://',
+	var protocol = 'http://localhost:9292/',
 		routes   = {
-			'report'    : 'local.botaniser.com:8080/reports/add',
-			'bulkSearch': 'bie.ala.org.au/ws/species/lookup/bulk',
-			'byLocation': 'biocache.ala.org.au/ws/occurrences/search'
+			'specieDetail' : 'biocache.ala.org.au/ws/occurrences/search',
+			'report'       : 'local.botaniser.com:8080/reports/add',
+			'bulkSearch'   : 'bie.ala.org.au/ws/species/lookup/bulk',
+			'byLocation'   : 'biocache.ala.org.au/ws/occurrences/search'
 			//'byLocation': 'http://localhost:9292/biocache.ala.org.au/ws/occurrence/facets'
 		};
 
