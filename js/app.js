@@ -28,6 +28,10 @@ angular
 				templateUrl: 'views/report.html',
 				controller: 'Report'
 			})
+			.when('/report/:name', {
+				templateUrl: 'views/report.html',
+				controller: 'Report'
+			})
 			.when('/species/:speciesId', {
 				templateUrl: 'views/speciesDetailCtrl.html',
 				controller: 'SpeciesDetailCtrl'

@@ -1,5 +1,6 @@
 (function (app, specieMap) {
 	'use strict';
+	var minimum_prize = 5;
 	app.controller('NearMe', function ($scope, geolocation, api) {
 
 		function bulkSearch(species) {
@@ -16,15 +17,6 @@
 					specie.thumbnail = item.thumbnail;
 					specie.image     = item.image;
 					specie.score     = item.score;
-					specie.prize     = Math.floor(Math.sqrt(specie.score) * (50 / specie.totalCount));
-				});
-				$scope.species = species.sort(function (a, b) { //desc sort
-					if (a.prize < b.prize) {
-						return 1;
-					} else if (a.prize > b.prize) {
-						return -1;
-					}
-					return 0;
 				});
 			}).error(function(data, status, headers, config) {
 				console.log('Error', arguments);
@@ -57,20 +49,21 @@
 						var species = results.reduce(function (res, item){
 							if (item.count < 100 && specieMap[item.label] && specieMap[item.label].occurrenceCount < 100) {
 								item.totalCount = specieMap[item.label].occurrenceCount;
+								item.prize = specieMap[item.label].prize || minimum_prize;
 								res.push(item);
 							}
 							return res;
 						}, []);
-						species = species.sort(function (a, b) {
-							if (a.totalCount < b.totalCount) {
+						species = species.sort(function (a, b) { //desc sort by prize
+							if (a.prize > b.prize) {
 								return -1;
-							} else if (a.totalCount > b.totalCount) {
+							} else if (a.prize < b.prize) {
 								return 1;
 							}
 							return 0;
 						});
 
-						$scope.species = species.splice(0, 20);
+						$scope.species = species.splice(0, 10);
 						bulkSearch($scope.species);
 	    			}).error(function(data, status, headers, config) {
 						console.log('Error', arguments);

@@ -1,7 +1,7 @@
 (function (app, specieMap) {
 	'use strict';
 
-	app.controller('SpeciesDetailCtrl', function($scope, $route, api, geolocation) {
+	app.controller('SpeciesDetailCtrl', function ($scope, $route, api, geolocation) {
 		// Initialise geo-location
 		var params = $route.current.params,
 			species = specieMap[params.speciesId];
@@ -17,11 +17,8 @@
 			zoom: $scope.zoom
 		};
 
-		console.log(species.guid);
-
 		api.fetch('singleSpecies|' + species.guid, {})
 		.success(function(data, status, headers, config) {
-			console.log(data);
 			if (data.images && data.images.length) {
 				$scope.image = data.images[0].largeImageUrl;
 			}
@@ -49,7 +46,6 @@
 						'facets': 'taxon_name'
 					}
 				}).success(function(data, status, headers, config) {
-					console.log(data.occurrences);
 					$scope.occurrences = data.occurrences.reduce(function (obj, marker, index) { //we stupidly need a hash map Object here
 						obj['m' + index] = {
 							lat: marker.decimalLatitude,
@@ -59,7 +55,6 @@
 						};
 						return obj;
 					}, {});
-					console.log($scope.occurrences);
 				}).error(function(data, status, headers, config) {
 					console.log('Error', arguments);
 				});
