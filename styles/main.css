@@ -2,8 +2,8 @@ body, html {
   height: 100%;
 }
 
-.header {
-  overflow: hidden;
+.header a {
+  color: #EBEBEB;
 }
 
 .center-hr {
@@ -40,4 +40,3 @@ body, html {
     background-color:#333;
     font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
 }
-

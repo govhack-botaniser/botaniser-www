@@ -30,4 +30,12 @@ angular
 			.otherwise({
 				redirectTo: '/'
 			});
+	}).run(function($rootScope, $window) {
+		$rootScope.slide = '';
+		$rootScope.$on('$routeChangeStart', function() {
+			$rootScope.slide = 'slide-left';
+		});
+		$rootScope.$on('$routeChangeSuccess', function() {
+			$rootScope.slide = '';
+		});
 	});
