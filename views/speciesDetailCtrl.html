@@ -1,9 +1,17 @@
 <div class="panel-heading row header">
-     <h3 class="panel-title col-xs-10"><i class="fa fa-map-marker fa-lg"></i>{{name}}</h3><a class="fa fa-home fa-lg col-xs-2" href="#/"></a>
+     <h3 class="panel-title col-xs-10"><i class="fa fa-leaf fa-lg"></i>{{name}}</h3><a class="fa fa-home fa-lg col-xs-2" href="#/"></a>
 </div>
 <div class="panel-body">
-	<div id="map"></div>
-    <div class="species-detail">
-        <p>{{species.item.label}}</p>
-    </div>
+	<div class="well">
+		<div id="carousel-example-generic" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="{{image}}" height='400' alt="{{name}}" class="img-thumbnail center-block"></img>
+				</div>
+			</div>
+		</div>
+		<h5> Description </h5>
+		<p>{{description}}</p>
+	</div>
+	<leaflet height="380px" width="100%" center="center" markers="occurrences"></leaflet>
 </div>
